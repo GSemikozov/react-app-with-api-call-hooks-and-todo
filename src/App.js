@@ -1,40 +1,28 @@
 import './index.css';
 
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 
 import { Container } from './components/container';
 import { Form } from './components/form';
 import { Layout } from './components/layout';
 import { List } from './components/list';
-import { Notification } from './components/notification';
-import { StoreContext } from './utils/store';
 
 function App() {
-  const { sharing } = useContext(StoreContext);
-  const [{ isLoading, isError }] = sharing;
-  const [notification, showNotification] = useState(false);
+  const [listItems, setListItems] = useState([]);
 
-  const loaded = useRef(false);
-  useEffect(() => {
-    if (loaded.current && isError === true) {
-      showNotification(true);
-      const timer = setTimeout(() => {
-        showNotification(false);
-      }, 3000);
-      return () => clearTimeout(timer);
-    } else {
-      loaded.current = true;
-    }
-  }, [isError]);
+  const addItem = item => {
+    const newItems = [...listItems, ...item];
+    setListItems(newItems);
+  };
+
+  const removeItem = index => {
+    const newItems = [...listItems];
+    newItems.splice(index, 1);
+    setListItems(newItems);
+  };
 
   return (
     <Layout>
-      <div></div>
-      {notification && (
-        <Notification>
-          param is empty or null, or there is no data yet / anymore
-        </Notification>
-      )}
       <Container>
         <div className="inner">
           <div className="inner__col">
@@ -44,10 +32,10 @@ function App() {
             <h2 className="page-subtitle">
               Just enter the cryptocurrency code on the form to the right.
             </h2>
-            {isLoading ? <div>Loading...</div> : <List />}
+            <List data={listItems} removeListItem={removeItem} />
           </div>
           <div className="inner__col">
-            <Form />
+            <Form addItem={addItem} />
           </div>
         </div>
       </Container>

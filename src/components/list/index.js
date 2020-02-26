@@ -1,26 +1,10 @@
-import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import cupIcon from '../../assets/icon.svg';
-import { API } from '../../constants';
-import { StoreContext } from '../../utils/store';
 import styles from './list.module.css';
 
-export const List = () => {
-  const { sharing, doFetch } = useContext(StoreContext);
-  const [{ data }] = sharing;
-
-  const removeListItem = index => {
-    const listItems = data.filter((listItem, listItemIndex) => {
-      return listItemIndex !== index;
-    });
-    const query = listItems.map(item => item.name).join(",");
-    const url =
-      query.length > 0
-        ? `${API}data/pricemulti?fsyms=${query}&tsyms=EUR&extraParams=test&api_key=4c2ea3142b37ec9003722fb17ec0a0499c055adcf45502bdf5dfbb28c2dd454c`
-        : null;
-    doFetch(url);
-  };
-
+export const List = ({ data, removeListItem }) => {
   return (
     <div>
       <ul className={styles.list}>
@@ -45,4 +29,9 @@ export const List = () => {
       </ul>
     </div>
   );
+};
+
+List.propTypes = {
+  data: PropTypes.array.isRequired,
+  removeListItem: PropTypes.func.isRequired
 };

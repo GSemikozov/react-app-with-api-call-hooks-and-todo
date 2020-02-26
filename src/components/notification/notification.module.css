@@ -1,11 +1,10 @@
 .notification {
   color: #c00;
-  position: fixed;
-  top: 50px;
-  left: 50%;
-  transform: translate(-50%, 0);
   padding: 20px;
   background-color: rgba(205, 207, 211, 0.09);
-  text-align: center;
-  display: inline-block;
+  display: block;
+  margin-bottom: 20px;
+  position: absolute;
+  bottom: calc(100% + 20px);
+  left: 0;
 }

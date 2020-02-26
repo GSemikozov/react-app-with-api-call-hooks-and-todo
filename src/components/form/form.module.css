@@ -4,6 +4,7 @@
   padding: 16px 24px;
   width: 100%;
   margin-bottom: 50px;
+  position: relative;
 }
 
 .input {
