@@ -16,7 +16,7 @@ export const List = () => {
     const query = listItems.map(item => item.name).join(",");
     const url =
       query.length > 0
-        ? `${API}data/pricemulti?fsyms=${query}&tsyms=EUR&extraParams=test&api_key=4c2ea3142b37ec9003722fb17ec0a0499c055adcf45502bdf5dfbb28c2dd454c`
+        ? `${API}data/pricemulti?fsyms=${query}&tsyms=EUR`
         : null;
     doFetch(url);
   };

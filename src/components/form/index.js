@@ -12,9 +12,7 @@ export const Form = () => {
     <form
       className={styles.form}
       onSubmit={e => {
-        doFetch(
-          `${API}data/pricemulti?fsyms=${query}&tsyms=EUR&extraParams=test&api_key=4c2ea3142b37ec9003722fb17ec0a0499c055adcf45502bdf5dfbb28c2dd454c`
-        );
+        doFetch(`${API}data/pricemulti?fsyms=${query}&tsyms=EUR`);
         setQuery("");
         e.preventDefault();
       }}
