@@ -1,0 +1,126 @@
+.form {
+  background-color: var(--color-white);
+  border-radius: 4px;
+  padding: 16px 24px;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.input {
+  font-size: 16px;
+  line-height: 1.2;
+  padding: 20px 15px;
+  height: 48px;
+  display: block;
+  width: 100%;
+  border: none;
+  color: var(--color-black);
+  border: 1px solid var(--color-grey);
+  border-radius: 4px;
+  font-weight: 600;
+  color: inherit;
+  text-transform: uppercase;
+}
+
+.form-field {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input:focus ~ .line:after,
+.input:focus ~ .line:before {
+  width: 50%;
+}
+
+.input:focus ~ .label,
+.input:not([value=""]) ~ .label {
+  top: -6px;
+  font-size: 9px;
+  padding: 2px 4px;
+  background-color: var(--color-white);
+}
+
+.label {
+  top: 15px;
+  left: 20px;
+  color: var(--color-grey);
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 600;
+  text-transform: uppercase;
+  position: absolute;
+  pointer-events: none;
+  transition: 0.15s ease all;
+}
+
+.line {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.line:before {
+  left: 50%;
+}
+
+.line:after {
+  right: 50%;
+}
+
+.line:before,
+.line:after {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 0;
+  position: absolute;
+  transition: 0.15s ease all;
+  background-color: var(--color-violet);
+}
+
+.error {
+  position: absolute;
+  top: calc(100% + 3px);
+  left: 0;
+  color: #c00;
+  font-size: 12px;
+}
+
+.submit {
+  background-color: var(--color-orange);
+  color: var(--color-white);
+  font-size: 14px;
+  font-weight: 600;
+  height: 40px;
+  border-radius: 20px;
+  transition: 0.2s all;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+}
+
+.submit:hover,
+.submit:active,
+.submit:focus {
+  background-color: var(--color-violet);
+}
+
+.info {
+  margin-top: 40px;
+  margin-bottom: 0;
+  color: var(--color-grey);
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 600;
+  text-align: center;
+}
+
+@media all and (min-width: 1024px) {
+  .form {
+    padding: 40px 48px;
+  }
+}

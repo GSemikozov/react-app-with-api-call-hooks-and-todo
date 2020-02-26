@@ -1,0 +1,88 @@
+.list {
+  padding: 0;
+  margin: 0;
+}
+
+.list li {
+  list-style-type: none;
+  padding: 16px 40px 16px 0;
+  border-bottom: 2px solid;
+  border-image: linear-gradient(
+      to right,
+      rgba(106, 91, 129, 1),
+      rgba(106, 91, 129, 0)
+    )
+    100% 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list li span {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.currencies {
+  padding-left: 30px;
+  flex-grow: 1;
+}
+
+.currency {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: var(--color-white);
+  text-transform: uppercase;
+}
+
+.rate {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--color-violet-light);
+}
+
+.button {
+  transition: 0.2s all;
+  cursor: pointer;
+  display: inline-block;
+  padding: 5px;
+}
+
+.delete {
+  color: var(--color-grey);
+  position: relative;
+  display: inline-block;
+}
+
+.delete:before,
+.delete:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 12px;
+  width: 2px;
+  background-color: var(--color-grey);
+}
+
+.delete:before {
+  transform: rotate(45deg);
+}
+
+.delete:after {
+  transform: rotate(-45deg);
+}
+
+.button:hover .delete:before,
+.button:hover .delete:after {
+  background-color: var(--color-orange);
+}
+
+@media all and (min-width: 1024px) {
+  .list {
+    margin: 0 0 50px;
+    max-width: 85%;
+  }
+}
